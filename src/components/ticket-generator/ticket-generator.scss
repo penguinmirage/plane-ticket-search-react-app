@@ -1,0 +1,82 @@
+.ticket-generator {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  max-width: 600px;
+
+  .ticket-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+
+    .ticket-price {
+      font-size: 24px;
+      color: #007aff;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .company-logo {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      font-weight: bold;
+      color: #999;
+      margin-bottom: 20px;
+    }
+
+    .ticket-generator-results {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      .destination {
+        font-size: 14px;
+        font-weight: bold;
+        color: #999;
+        margin-bottom: 8px;
+      }
+
+      .destination__departure-arrival-time {
+        font-size: 16px;
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .time-in-flight {
+        font-size: 14px;
+        font-weight: bold;
+        color: #999;
+        margin-bottom: 8px;
+      }
+
+      .time-in-flight__result {
+        font-size: 16px;
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .flight-change {
+        font-size: 14px;
+        font-weight: bold;
+        color: #999;
+        margin-bottom: 8px;
+      }
+
+      .flight-change__place {
+        font-size: 16px;
+        color: #333;
+        font-weight: bold;
+      }
+    }
+  }
+}

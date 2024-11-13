@@ -1,0 +1,90 @@
+.flight-type-filter {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 200px;
+
+  .filter__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .filter-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .filter-checkbox {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      accent-color: #007aff;
+    }
+
+    .filter-label {
+      cursor: pointer;
+      color: #333;
+      font-size: 14px;
+    }
+  }
+
+  .filter-btn {
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #333;
+    text-align: left;
+    border: 1px solid transparent;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+
+    &.filter-btn__all {
+      color: #007aff;
+      font-weight: bold;
+      border: 1px solid #007aff;
+      background-color: #e0f7ff;
+    }
+
+    &.filter-btn__no-change,
+    &.filter-btn__one-change,
+    &.filter-btn__two-changes,
+    &.filter-btn__three-changes {
+      background-color: #ffffff;
+      color: #333;
+    }
+
+    &.filter-btn__no-change {
+      &:hover {
+        background-color: #d4edda;
+      }
+    }
+
+    &.filter-btn__one-change {
+      &:hover {
+        background-color: #ffe5b4;
+      }
+    }
+
+    &.filter-btn__two-changes {
+      &:hover {
+        background-color: #ffddc1;
+      }
+    }
+
+    &.filter-btn__three-changes {
+      &:hover {
+        background-color: #ffe6e6;
+      }
+    }
+  }
+}
