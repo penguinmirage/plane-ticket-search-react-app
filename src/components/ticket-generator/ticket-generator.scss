@@ -1,8 +1,76 @@
-.ticket-generator {
+/* .ticket-generator {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
   max-width: 600px;
+  margin-left: 30px;
+  max-width: 600px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+
+  .ticket-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+
+    .ticket-price {
+      grid-column: 1 / span 1;
+      align-self: center;
+    }
+
+    .company-logo {
+      grid-column: 3 / span 1;
+      align-self: center;
+      justify-self: center;
+    }
+
+    .ticket-generator-results {
+      grid-column: 1 / span 3;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+
+      .destination {
+        grid-column: 1 / span 1;
+      }
+
+      .destination__departure-arrival-time {
+        grid-column: 1 / span 1;
+      }
+
+      .time-in-flight {
+        grid-column: 2 / span 1;
+      }
+
+      .time-in-flight__result {
+        grid-column: 2 / span 1;
+      }
+
+      .flight-change {
+        grid-column: 3 / span 1;
+      }
+
+      .flight-change__place {
+        grid-column: 3 / span 1;
+      }
+    }
+  }
+} */
+
+.ticket-generator {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  max-width: 620px;
+  margin-left: 30px;
 
   .ticket-card {
     display: flex;
