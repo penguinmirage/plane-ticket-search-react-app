@@ -1,4 +1,8 @@
 .ticket-search-filter {
+  position: fixed;
+  z-index: 2;
+  left: 25%;
+  top: 10%;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
