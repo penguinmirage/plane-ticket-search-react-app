@@ -2,10 +2,18 @@
 import React from 'react';
 import './ticket-generator.scss';
 
+import { add } from 'date-fns';
+
 function TicketGenerator({ price, carrier, segments }) {
   const [outbound, inbound] = segments || [];
 
   const formatStops = (stops) => (stops.length === 0 ? 'Без пересадок' : `${stops.length} пересадка(и)`);
+
+  const formatDuration = (minutes) => {
+    const hours = Math.floor(minutes / 60);
+    const remainingMinutes = minutes % 60;
+    return `${hours} ч ${remainingMinutes} мин`;
+  };
 
   return (
     <div className="ticket-generator">
@@ -21,7 +29,7 @@ function TicketGenerator({ price, carrier, segments }) {
                 {outbound.origin} → {outbound.destination}
               </li>
               <li className="time-in-flight">{formatStops(outbound.stops)}</li>
-              <li className="time-in-flight__result">{outbound.duration} мин.</li>
+              <li className="time-in-flight__result">{formatDuration(outbound.duration)}</li>
             </ul>
           </>
         )}
@@ -34,7 +42,7 @@ function TicketGenerator({ price, carrier, segments }) {
                 {inbound.origin} → {inbound.destination}
               </li>
               <li className="time-in-flight">{formatStops(inbound.stops)}</li>
-              <li className="time-in-flight__result">{inbound.duration} мин.</li>
+              <li className="time-in-flight__result">{formatDuration(inbound.duration)}</li>
             </ul>
           </>
         )}
