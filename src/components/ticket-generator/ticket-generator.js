@@ -1,5 +1,6 @@
 //edit with TicketList induction TicketGenerator component
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ticket-generator.scss';
 import { add } from 'date-fns';
 
@@ -35,10 +36,11 @@ function TicketGenerator({ price, carrier, segments }) {
   return (
     <div className="ticket-generator">
       <div className="ticket-card">
-        <div className="ticket-price">{price} ₽</div>
-        <div className="company-logo">{carrier}</div>
+        <div className="ticket-price">{price} р.</div>
+        <div className="company-logo">
+          <img src={`https://pics.avs.io/99/36/${carrier}.png`} alt={carrier} />
+        </div>
 
-        {/* Outbound Flight */}
         {outbound && (
           <>
             <ul className="ticket-generator-results">
@@ -58,7 +60,6 @@ function TicketGenerator({ price, carrier, segments }) {
           </>
         )}
 
-        {/* Inbound Flight */}
         {inbound && (
           <>
             <ul className="ticket-generator-results">
@@ -81,6 +82,20 @@ function TicketGenerator({ price, carrier, segments }) {
     </div>
   );
 }
+
+TicketGenerator.propTypes = {
+  price: PropTypes.number.isRequired,
+  carrier: PropTypes.string.isRequired,
+  segments: PropTypes.arrayOf(
+    PropTypes.shape({
+      origin: PropTypes.string.isRequired,
+      destination: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      duration: PropTypes.number.isRequired,
+      stops: PropTypes.arrayOf(PropTypes.string).isRequired,
+    })
+  ).isRequired,
+};
 
 export default TicketGenerator;
 

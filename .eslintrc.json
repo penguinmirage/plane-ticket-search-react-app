@@ -4,6 +4,9 @@
     "es2021": true
   },
   "ignorePatterns": ["node_modules", "dist", "build"],
+  "globals": {
+    "Intl": "readonly"
+  },
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -33,14 +36,7 @@
     "import/order": [
       2,
       {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index"
-        ],
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
         "newlines-between": "always"
       }
     ]

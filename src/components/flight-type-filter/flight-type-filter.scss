@@ -1,12 +1,10 @@
 .flight-type-filter {
-  /* position: fixed;
-  z-index: 3;
-  top: 10%; */
   background-color: #ffffff;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 200px;
+  width: 200px;
+  max-height: 300px;
 
   .filter__list {
     display: flex;
@@ -22,11 +20,68 @@
     align-items: center;
     gap: 10px;
 
-    .filter-checkbox {
-      width: 16px;
-      height: 16px;
-      cursor: pointer;
-      accent-color: #007aff;
+    .checkbox-wrapper-28 {
+      --size: 16px;
+      position: relative;
+
+      .promoted-input-checkbox {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
+      label {
+        color: #333;
+        font-size: 14px;
+        line-height: var(--size);
+        cursor: pointer;
+        position: relative;
+
+        &::after {
+          content: '';
+          height: var(--size);
+          width: var(--size);
+          margin-right: 8px;
+          float: left;
+          border: 2px solid #007aff;
+          border-radius: 3px;
+          transition: 0.15s all ease-out;
+        }
+
+        &:active::after {
+          background-color: #e6e6e6;
+        }
+      }
+
+      input:checked ~ svg {
+        height: calc(var(--size) * 0.6);
+        animation: draw-checkbox-28 ease-in-out 0.2s forwards;
+      }
+
+      svg {
+        stroke: #007aff;
+        stroke-width: 3px;
+        height: 0;
+        width: calc(var(--size) * 0.6);
+        position: absolute;
+        left: calc(var(--size) * 0.21);
+        top: calc(var(--size) * 0.2);
+        stroke-dasharray: 33;
+      }
+    }
+
+    @keyframes draw-checkbox-28 {
+      0% {
+        stroke-dashoffset: 33;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
     }
 
     .filter-label {

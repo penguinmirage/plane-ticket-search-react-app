@@ -1,8 +1,4 @@
 .ticket-search-filter {
-  /* position: fixed;
-  z-index: 2;
-  left: 25%;
-  top: 10%; */
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
@@ -35,11 +31,7 @@
       background-color: #e0f0ff;
     }
 
-    &.filter-btn__cheapest {
-      color: #007aff;
-      background-color: #e0f7ff;
-    }
-
+    &.filter-btn__cheapest,
     &.filter-btn__fastest,
     &.filter-btn__optimal {
       color: #333;
@@ -49,5 +41,12 @@
       color: #ffffff;
       background-color: #007aff;
     }
+  }
+}
+
+@media only screen and (max-device-width: 480px) {
+  .filter__list {
+    display: flex;
+    flex-direction: column;
   }
 }

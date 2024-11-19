@@ -1,9 +1,16 @@
 .list-group-item {
   list-style: none;
-  text-decoration: none;
-  max-width: 600px;
-  position: relative;
-  left: 23.5%;
-  top: 50px;
-  z-index: 1;
+}
+
+.alert-message {
+  margin: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

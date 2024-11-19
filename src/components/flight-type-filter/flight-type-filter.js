@@ -1,5 +1,6 @@
 // edited FlightTypeFilter.js
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { toggleAll, toggleNoChange, toggleOneChange, toggleTwoChanges, toggleThreeChanges } from '../../actions';
 import './flight-type-filter.scss';
@@ -116,6 +117,21 @@ const FlightTypeFilter = ({
       </ul>
     </div>
   );
+};
+
+FlightTypeFilter.propTypes = {
+  filters: PropTypes.shape({
+    all: PropTypes.bool.isRequired,
+    noChange: PropTypes.bool.isRequired,
+    oneChange: PropTypes.bool.isRequired,
+    twoChanges: PropTypes.bool.isRequired,
+    threeChanges: PropTypes.bool.isRequired,
+  }).isRequired,
+  toggleAll: PropTypes.func.isRequired,
+  toggleNoChange: PropTypes.func.isRequired,
+  toggleOneChange: PropTypes.func.isRequired,
+  toggleTwoChanges: PropTypes.func.isRequired,
+  toggleThreeChanges: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

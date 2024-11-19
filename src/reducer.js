@@ -2,16 +2,16 @@
 const initialState = {
   filters: {
     all: false,
-    noChange: false,
+    noChange: true,
     oneChange: false,
     twoChanges: false,
     threeChanges: false,
   },
-  searchFilter: 'OPTIMAL', // Default search filter
-  searchId: null, // Store searchId here
-  tickets: [], // Store fetched tickets
-  loading: false, // Loading state
-  error: null, // Error state
+  searchFilter: 'OPTIMAL',
+  searchId: null,
+  tickets: [],
+  loading: false,
+  error: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -57,12 +57,12 @@ const reducer = (state = initialState, action) => {
     }
 
     case 'CHEAPEST':
+      return { ...state, searchFilter: 'CHEAPEST' };
     case 'FASTEST':
+      return { ...state, searchFilter: 'FASTEST' };
     case 'OPTIMAL':
-      return {
-        ...state,
-        searchFilter: action.type,
-      };
+      return { ...state, searchFilter: 'OPTIMAL' };
+    //////
 
     case 'FETCH_SEARCH_ID_SUCCESS':
       return {

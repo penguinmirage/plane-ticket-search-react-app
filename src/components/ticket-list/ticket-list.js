@@ -3,6 +3,7 @@ import './ticket-list.scss';
 import TicketGenerator from '../ticket-generator';
 import { useSelector } from 'react-redux';
 import LoaderAntd from '../loader-antd';
+import { Alert } from 'antd';
 
 const TicketList = () => {
   const { tickets, filters, searchFilter, loading } = useSelector((state) => ({
@@ -14,38 +15,39 @@ const TicketList = () => {
 
   // Apply filters to tickets
   const filteredTickets = tickets.filter((ticket) => {
-    const stopsCount = ticket.segments[0]?.stops.length + ticket.segments[1]?.stops.length;
+    const outboundStops = ticket.segments[0]?.stops.length;
+    const inboundStops = ticket.segments[1]?.stops.length;
 
-    if (filters.all) return true; // If "All" is selected, include all tickets
-    if (filters.noChange && stopsCount === 0) return true;
-    if (filters.oneChange && stopsCount === 1) return true;
-    if (filters.twoChanges && stopsCount === 2) return true;
-    if (filters.threeChanges && stopsCount === 3) return true;
+    if (filters.all) return true;
+    if (filters.noChange && (outboundStops === 0 || inboundStops === 0)) return true;
+    if (filters.oneChange && (outboundStops === 1 || inboundStops === 1)) return true;
+    if (filters.twoChanges && (outboundStops === 2 || inboundStops === 2)) return true;
+    if (filters.threeChanges && (outboundStops === 3 || inboundStops === 3)) return true;
 
     return false;
   });
 
-  // Sort tickets based on the selected search filter
   const sortedTickets = [...filteredTickets].sort((a, b) => {
     switch (searchFilter) {
       case 'CHEAPEST':
-        return a.price - b.price; // Sort by price (ascending)
+        return a.price - b.price;
       case 'FASTEST':
         return a.segments[0]?.duration + a.segments[1]?.duration - (b.segments[0]?.duration + b.segments[1]?.duration); // Sort by duration (ascending)
       case 'OPTIMAL':
-        // Example of custom sorting logic (adjust as needed)
-        return a.price * 0.5 + a.segments[0]?.duration * 0.5 - (b.price * 0.5 + b.segments[0]?.duration * 0.5);
+        return a.price * 0.5 + a.segments[0]?.duration * 0.5 - (b.price * 0.5 + b.segments[0]?.duration * 0.5); // Example of custom sorting logic
       default:
         return 0;
     }
   });
 
   if (loading) {
-    return <LoaderAntd />;
+    return <LoaderAntd className="spinner" />;
   }
 
   if (sortedTickets.length === 0) {
-    return <div>No tickets match the selected filters.</div>;
+    return (
+      <Alert className="alert-message" message="Рейсов, подходящих под заданные фильтры, не найдено" type="success" />
+    );
   }
 
   return (
