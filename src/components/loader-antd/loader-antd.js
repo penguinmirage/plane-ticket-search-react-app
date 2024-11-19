@@ -3,9 +3,6 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { Flex, Spin } from 'antd';
 const LoaderAntd = () => (
   <Flex align="center" gap="middle">
-    <Spin indicator={<LoadingOutlined spin />} size="small" />
-    <Spin indicator={<LoadingOutlined spin />} />
-    <Spin indicator={<LoadingOutlined spin />} size="large" />
     <Spin
       indicator={
         <LoadingOutlined

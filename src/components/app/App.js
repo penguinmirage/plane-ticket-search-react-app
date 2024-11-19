@@ -54,6 +54,7 @@ import './Logo.svg';
 import FlightTypeFilter from '../flight-type-filter';
 import TicketSearchFilter from '../ticket-search-filter';
 import TicketGenerator from '../ticket-generator';
+
 import { fetchSearchId, fetchTickets } from '../../actions';
 import TicketList from '../ticket-list/ticket-list';
 
@@ -74,13 +75,12 @@ function App() {
   return (
     <div className="App">
       <p className="app-logo"> ✈ Your app for avia ticket sales.</p>
+
       <div className="app-components">
         <FlightTypeFilter className="app-type-filter app-components__sidebar" />
         <div className="app-components__mainbar">
           <TicketSearchFilter className="app-search-filter" />
-          {/* {loading && <p>Loading...</p>}
-          {error && <p>Error: {error}</p>}
-          <TicketGenerator className="app-generator" tickets={tickets} /> */}
+
           <TicketList />
         </div>
       </div>
