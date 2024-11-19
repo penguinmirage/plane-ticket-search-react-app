@@ -10,9 +10,16 @@ function TicketGenerator({ price, carrier, segments }) {
   const formatStops = (stops) => (stops.length === 0 ? 'Без пересадок' : `${stops.length} пересадка(и)`);
   const stopsAsString = (stops) => stops.join(', ');
 
+  // const formatTime = (date) => {
+  //   const options = { hour: '2-digit', minute: '2-digit' };
+  //   return new Intl.DateTimeFormat('ru-RU', options).format(new Date(date));
+  // };
+  //
   const formatTime = (date) => {
-    const options = { hour: '2-digit', minute: '2-digit' };
-    return new Intl.DateTimeFormat('ru-RU', options).format(new Date(date));
+    const d = new Date(date);
+    const hours = d.getHours().toString().padStart(2, '0');
+    const minutes = d.getMinutes().toString().padStart(2, '0');
+    return `${hours}:${minutes}`;
   };
 
   const calculateArrivalTime = (departure, duration) => {
